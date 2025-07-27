@@ -1,8 +1,8 @@
 import { PrismaClient } from "@prisma/client";
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import Jwt from "jsonwebtoken";
-import { Cookie } from "react-router-dom";
+// import { Cookie } from "react-router-dom";
 
 const client = new PrismaClient();
 export const registerUser = async (req: Request, res: Response) => {
