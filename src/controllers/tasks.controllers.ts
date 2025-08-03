@@ -1,7 +1,5 @@
-import { Message } from "@mui/icons-material";
 import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
-import bcrypt from "bcryptjs";
 
 const client = new PrismaClient();
 export const createTasks = async (req: Request, res: Response) => {
