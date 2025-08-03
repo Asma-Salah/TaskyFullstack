@@ -47,7 +47,13 @@ export const loginUser = async (req: Request, res: Response) => {
       ...userDetails
     } = user;
     const token = Jwt.sign(userDetails, process.env.JWT_SECRET!);
-    return res.cookie("authToken", token).json(userDetails);
+    return res
+      .cookie("authToken", token, {
+        httpOnly: true,
+        sameSite: "none",
+        secure: true,
+      })
+      .json(userDetails);
   } catch (e) {
     return res.status(500).json({ message: "something went wrong!" });
   }
